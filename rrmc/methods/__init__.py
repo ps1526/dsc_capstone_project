@@ -18,6 +18,8 @@ from .stopping_rules import (
     CIPLiteStopping,
     UoTLiteStopping,
     AllSuspectsWrapper,
+    PerturbedMIECEStopping,
+    ECEOnlyStopping,
 )
 
 
@@ -32,6 +34,8 @@ METHODS: Dict[str, type] = {
     "knowno": KnowNoStopping,
     "cip_lite": CIPLiteStopping,
     "uot_lite": UoTLiteStopping,
+    "perturbed_mi_ece": PerturbedMIECEStopping,
+    "ece_only": ECEOnlyStopping,
 }
 
 

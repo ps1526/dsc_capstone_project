@@ -1,0 +1,51 @@
+# Blob Comparison: MI-only vs MI+ECE vs ECE-only
+experiment_name: blob/blob_comparison
+task: dc
+regime: normal
+data_subset: test
+
+# Perturbation settings
+perturbation:
+  enabled: true
+  noise_type: gaussian
+  noise_scale: 0.1
+  n_perturbed_samples: 8
+  temperature_range: [0.3, 1.2]
+  use_prompt_perturbation: true
+  use_embedding_noise: true
+
+# Combined uncertainty
+combined_uncertainty:
+  use_ece: true
+  alpha: 0.5
+  beta: 0.5
+  ece_bins: 10
+
+# Question selection with ECE
+use_ece_question_selector: true
+ece_question_selector:
+  m_candidates: 5
+  r_simulations: 3
+  score_type: combined
+
+# Calibration
+calibrate: true
+n_train: 40
+n_test: 30
+target_error: 0.10
+
+# Full comparison
+methods:
+  - fixed_turns
+  - self_consistency
+  - mi_only
+  - robust_mi
+  - perturbed_mi_ece
+  - ece_only
+
+# MI estimation
+k_samples: 8
+variants:
+  - base
+  - skeptical
+  - alternative

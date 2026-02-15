@@ -20,6 +20,7 @@ import numpy as np
 from ..core.llm import LLMWrapper
 from ..core.clustering import SemanticClusterer
 from ..core.mi_estimator import SelfRevisionMI, RobustMI, MIEstimate
+from ..core.mi_estimator_ece import RobustMIWithECE, CombinedUncertaintyEstimate
 from ..core.calibration import StoppingController
 
 
@@ -981,3 +982,199 @@ class AllSuspectsWrapper(BaseStoppingRule):
 
     def get_best_answer(self, task_type: str, state: Dict[str, Any]) -> str:
         return self.inner_rule.get_best_answer(task_type, state)
+
+
+class PerturbedMIECEStopping(BaseStoppingRule):
+    """
+    Stopping rule using perturbed ensemble with combined MI + ECE.
+    
+    Combines:
+    1. Robust MI across prompt variants
+    2. ECE from perturbed ensemble
+    3. Weighted combination as uncertainty signal
+    
+    Stop when: combined_score <= threshold
+    """
+    
+    def __init__(
+        self,
+        llm: LLMWrapper,
+        clusterer: SemanticClusterer,
+        threshold: float = 0.3,
+        k_samples: int = 8,
+        max_turns: int = 25,
+        temperature: float = 0.7,
+        variants: Optional[List[str]] = None,
+        alpha: float = 0.5,  # MI weight
+        beta: float = 0.5,   # ECE weight
+        perturbation_config: Optional[Any] = None,
+        ece_bins: int = 10,
+        regime: str = "normal",
+    ):
+        """
+        Initialize perturbed MI+ECE stopping rule.
+        
+        Args:
+            llm: LLM wrapper
+            clusterer: Semantic clusterer
+            threshold: Stopping threshold for combined score
+            k_samples: Number of samples
+            max_turns: Maximum turns
+            temperature: Base temperature
+            variants: Prompt variants for MI
+            alpha: Weight for MI in combined score
+            beta: Weight for ECE in combined score
+            perturbation_config: Perturbation configuration
+            ece_bins: Number of ECE bins
+            regime: Decoding regime
+        """
+        super().__init__(max_turns)
+        
+        self.mi_ece_estimator = RobustMIWithECE(
+            llm=llm,
+            clusterer=clusterer,
+            k_samples=k_samples,
+            temperature=temperature,
+            variants=variants,
+            regime=regime,
+            use_ece=True,
+            alpha=alpha,
+            beta=beta,
+            perturbation_config=perturbation_config,
+            ece_bins=ece_bins,
+        )
+        
+        self.threshold = threshold
+        self.alpha = alpha
+        self.beta = beta
+        self._last_estimate: Optional[CombinedUncertaintyEstimate] = None
+    
+    def should_stop(
+        self,
+        task_type: str,
+        state: Dict[str, Any],
+        turn: int,
+    ) -> StoppingDecision:
+        if turn >= self.max_turns:
+            return StoppingDecision(
+                should_stop=True,
+                reason="max_turns",
+                score=float('inf'),
+                prediction=self.get_best_answer(task_type, state),
+            )
+        
+        # Estimate combined MI + ECE
+        ground_truth = state.get("ground_truth")  # If available during eval
+        estimate = self.mi_ece_estimator.estimate(
+            task_type=task_type,
+            state=state,
+            ground_truth=ground_truth,
+        )
+        self._last_estimate = estimate
+        
+        should_stop = estimate.combined_score <= self.threshold
+        
+        return StoppingDecision(
+            should_stop=should_stop,
+            reason="low_combined_uncertainty" if should_stop else "high_combined_uncertainty",
+            score=estimate.combined_score,
+            prediction=self.get_best_answer(task_type, state) if should_stop else None,
+            metadata={
+                "mi": estimate.mi,
+                "ece": estimate.ece,
+                "alpha": estimate.mi_weight,
+                "beta": estimate.ece_weight,
+            },
+        )
+    
+    def get_best_answer(self, task_type: str, state: Dict[str, Any]) -> str:
+        """Get best answer using MI+ECE estimator."""
+        return self.mi_ece_estimator.get_best_answer(task_type, state)
+    
+    def update_threshold(self, new_threshold: float):
+        """Update the stopping threshold (after calibration)."""
+        self.threshold = new_threshold
+
+
+class ECEOnlyStopping(BaseStoppingRule):
+    """
+    ECE-only stopping rule (baseline without MI).
+    
+    Stop when: ECE <= threshold
+    """
+    
+    def __init__(
+        self,
+        llm: LLMWrapper,
+        clusterer: SemanticClusterer,
+        ece_threshold: float = 0.15,
+        k_samples: int = 8,
+        max_turns: int = 25,
+        perturbation_config: Optional[Any] = None,
+        ece_bins: int = 10,
+    ):
+        """
+        Initialize ECE-only stopping rule.
+        
+        Args:
+            llm: LLM wrapper
+            clusterer: Semantic clusterer
+            ece_threshold: Stopping threshold for ECE
+            k_samples: Number of samples
+            max_turns: Maximum turns
+            perturbation_config: Perturbation configuration
+            ece_bins: Number of ECE bins
+        """
+        super().__init__(max_turns)
+        
+        # Use MI+ECE estimator but with beta=1, alpha=0
+        self.mi_ece_estimator = RobustMIWithECE(
+            llm=llm,
+            clusterer=clusterer,
+            k_samples=k_samples,
+            use_ece=True,
+            alpha=0.0,  # No MI
+            beta=1.0,   # ECE only
+            perturbation_config=perturbation_config,
+            ece_bins=ece_bins,
+        )
+        
+        self.ece_threshold = ece_threshold
+        self._last_estimate: Optional[CombinedUncertaintyEstimate] = None
+    
+    def should_stop(
+        self,
+        task_type: str,
+        state: Dict[str, Any],
+        turn: int,
+    ) -> StoppingDecision:
+        if turn >= self.max_turns:
+            return StoppingDecision(
+                should_stop=True,
+                reason="max_turns",
+                score=float('inf'),
+                prediction=self.get_best_answer(task_type, state),
+            )
+        
+        # Estimate ECE only
+        ground_truth = state.get("ground_truth")
+        estimate = self.mi_ece_estimator.estimate(
+            task_type=task_type,
+            state=state,
+            ground_truth=ground_truth,
+        )
+        self._last_estimate = estimate
+        
+        should_stop = estimate.ece <= self.ece_threshold
+        
+        return StoppingDecision(
+            should_stop=should_stop,
+            reason="low_ece" if should_stop else "high_ece",
+            score=estimate.ece,
+            prediction=self.get_best_answer(task_type, state) if should_stop else None,
+            metadata={"ece": estimate.ece},
+        )
+    
+    def get_best_answer(self, task_type: str, state: Dict[str, Any]) -> str:
+        """Get best answer using ECE estimator."""
+        return self.mi_ece_estimator.get_best_answer(task_type, state)

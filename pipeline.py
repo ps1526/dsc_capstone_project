@@ -551,6 +551,64 @@ class Pipeline:
             kwargs["k_samples"] = self.config.get(
                 "k_samples", method_cfg.get("k_samples", 6)
             )
+        elif method_name == "perturbed_mi_ece":
+            # Perturbed MI+ECE method
+            kwargs["k_samples"] = self.config.get("k_samples", method_cfg.get("k_samples", 8))
+            kwargs["threshold"] = self.config.get("threshold", method_cfg.get("threshold", 0.3))
+            kwargs["temperature"] = self.config.get("temperature", method_cfg.get("temperature", 0.7))
+            
+            # Variants for MI
+            variants = self.config.get("variants", method_cfg.get("variants", ["base", "skeptical"]))
+            if isinstance(variants, str):
+                variants = [v.strip() for v in variants.split(",")]
+            kwargs["variants"] = variants
+            
+            # MI and ECE weights
+            combined_unc = self.config.get("combined_uncertainty", method_cfg.get("combined_uncertainty", {}))
+            if isinstance(combined_unc, dict):
+                kwargs["alpha"] = combined_unc.get("alpha", method_cfg.get("alpha", 0.5))
+                kwargs["beta"] = combined_unc.get("beta", method_cfg.get("beta", 0.5))
+                kwargs["ece_bins"] = combined_unc.get("ece_bins", method_cfg.get("ece_bins", 10))
+            else:
+                kwargs["alpha"] = getattr(combined_unc, "alpha", 0.5)
+                kwargs["beta"] = getattr(combined_unc, "beta", 0.5)
+                kwargs["ece_bins"] = getattr(combined_unc, "ece_bins", 10)
+            
+            # Perturbation config
+            pert_cfg = self.config.get("perturbation", method_cfg.get("perturbation", {}))
+            if pert_cfg:
+                from rrmc.core.perturbation import PerturbationConfig
+                if isinstance(pert_cfg, dict):
+                    kwargs["perturbation_config"] = PerturbationConfig(
+                        n_samples=kwargs["k_samples"],
+                        noise_type=pert_cfg.get("noise_type", "gaussian"),
+                        noise_scale=pert_cfg.get("noise_scale", 0.1),
+                        temperature_range=tuple(pert_cfg.get("temperature_range", [0.3, 1.2])),
+                        use_prompt_perturbation=pert_cfg.get("use_prompt_perturbation", True),
+                        use_embedding_noise=pert_cfg.get("use_embedding_noise", True),
+                    )
+            
+            kwargs["regime"] = self.config.get("regime", method_cfg.get("regime", "normal"))
+            
+        elif method_name == "ece_only":
+            # ECE-only method
+            kwargs["k_samples"] = self.config.get("k_samples", method_cfg.get("k_samples", 8))
+            kwargs["ece_threshold"] = self.config.get("ece_threshold", method_cfg.get("ece_threshold", 0.15))
+            kwargs["ece_bins"] = self.config.get("ece_bins", method_cfg.get("ece_bins", 10))
+            
+            # Perturbation config
+            pert_cfg = self.config.get("perturbation", method_cfg.get("perturbation", {}))
+            if pert_cfg:
+                from rrmc.core.perturbation import PerturbationConfig
+                if isinstance(pert_cfg, dict):
+                    kwargs["perturbation_config"] = PerturbationConfig(
+                        n_samples=kwargs["k_samples"],
+                        noise_type=pert_cfg.get("noise_type", "gaussian"),
+                        noise_scale=pert_cfg.get("noise_scale", 0.1),
+                        temperature_range=tuple(pert_cfg.get("temperature_range", [0.3, 1.2])),
+                        use_prompt_perturbation=pert_cfg.get("use_prompt_perturbation", True),
+                        use_embedding_noise=pert_cfg.get("use_embedding_noise", True),
+                    )
 
         stopping_rule = get_method(method_name, **kwargs)
 

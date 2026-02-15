@@ -101,6 +101,19 @@ class ECEResult:
     bin_counts: List[int]
 
 
+@dataclass
+class PerturbedECEResult:
+    """ECE result for perturbed ensemble."""
+    ece: float
+    n_bins: int
+    bin_accuracies: List[float]
+    bin_confidences: List[float]
+    bin_counts: List[int]
+    n_samples: int
+    cluster_entropy: float
+    homogeneity_score: float
+
+
 def compute_ece(
     scores: List[float],
     errors: List[int],
@@ -165,6 +178,81 @@ def compute_ece(
         bin_accuracies=bin_accs,
         bin_confidences=bin_confs,
         bin_counts=bin_counts,
+    )
+
+
+def compute_perturbed_ece(
+    confidences: List[float],
+    accuracies: List[float],
+    n_bins: int = 10,
+) -> PerturbedECEResult:
+    """
+    Compute ECE for perturbed ensemble samples.
+    
+    Unlike standard ECE which derives confidence from MI scores,
+    this uses explicit confidence values (e.g., cluster frequencies)
+    from the perturbed ensemble.
+    
+    Args:
+        confidences: Confidence scores per sample (0-1 scale)
+        accuracies: Accuracy per sample (0 or 1)
+        n_bins: Number of calibration bins
+    
+    Returns:
+        PerturbedECEResult with per-bin statistics
+    """
+    if not confidences or not accuracies:
+        return PerturbedECEResult(
+            ece=0.0, n_bins=n_bins, bin_accuracies=[], bin_confidences=[],
+            bin_counts=[], n_samples=0, cluster_entropy=0.0, homogeneity_score=0.0
+        )
+    
+    conf_arr = np.array(confidences)
+    acc_arr = np.array(accuracies)
+    
+    bin_boundaries = np.linspace(0, 1, n_bins + 1)
+    bin_accs = []
+    bin_confs = []
+    bin_counts = []
+    ece = 0.0
+    
+    for i in range(n_bins):
+        mask = (conf_arr >= bin_boundaries[i]) & (conf_arr < bin_boundaries[i + 1])
+        if i == n_bins - 1:
+            mask = mask | (conf_arr == bin_boundaries[i + 1])
+        
+        count = mask.sum()
+        bin_counts.append(int(count))
+        
+        if count > 0:
+            avg_acc = acc_arr[mask].mean()
+            avg_conf = conf_arr[mask].mean()
+            bin_accs.append(float(avg_acc))
+            bin_confs.append(float(avg_conf))
+            ece += count * abs(avg_acc - avg_conf)
+        else:
+            bin_accs.append(0.0)
+            bin_confs.append(0.0)
+    
+    ece /= len(conf_arr)
+    
+    # Compute cluster entropy (Shannon entropy of confidence distribution)
+    conf_unique, conf_counts = np.unique(conf_arr, return_counts=True)
+    probs = conf_counts / len(conf_arr)
+    entropy = -np.sum(probs * np.log(probs + 1e-10))
+    
+    # Homogeneity score: max confidence frequency
+    homogeneity = float(np.max(conf_counts) / len(conf_arr))
+    
+    return PerturbedECEResult(
+        ece=float(ece),
+        n_bins=n_bins,
+        bin_accuracies=bin_accs,
+        bin_confidences=bin_confs,
+        bin_counts=bin_counts,
+        n_samples=len(conf_arr),
+        cluster_entropy=float(entropy),
+        homogeneity_score=homogeneity,
     )
 
 
@@ -388,6 +476,7 @@ class MetricsReport:
     ece: Optional[ECEResult] = None
     homogeneity: Optional[HomogeneityDiagnostics] = None
     mi_error_correlation: Optional[Dict[str, float]] = None
+    perturbed_ece: Optional[PerturbedECEResult] = None
 
 
 def generate_metrics_report(

@@ -1,0 +1,19 @@
+# ECE-Only Method Configuration
+method_name: ece_only
+
+# Stopping threshold
+ece_threshold: 0.15
+
+# Sampling
+k_samples: 8
+
+# ECE parameters
+ece_bins: 10
+
+# Perturbation
+perturbation:
+  noise_type: gaussian
+  noise_scale: 0.1
+  temperature_range: [0.3, 1.2]
+  use_prompt_perturbation: true
+  use_embedding_noise: true
