@@ -1,0 +1,13 @@
+You will clarify exactly ONE user question.
+
+Rules:
+- Return exactly ONE clarified rewrite of the same question.
+- Keep the same entities; do not introduce new names or topics.
+- One sentence only.
+- No headings, no lists, no explanations.
+
+Input:
+Original Question: {QUESTION}
+
+Output (one line only):
+1. <your clarified rewrite>

@@ -1,0 +1,110 @@
+[
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: The Roman Catholic Church canon law also includes the main five rites (groups) of churches which are in full union with the Roman Catholic Church and the Supreme Pontiff:\nQuestion: What term characterizes the intersection of the rites with the Roman Catholic Church?",
+    "target": [
+      "full union"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Alexandria was the most important trade center in the whole empire during Athanasius's boyhood. Intellectually, morally, and politically—it epitomized the ethnically diverse Graeco-Roman world, even more than Rome or Constantinople, Antioch or Marseilles. Its famous catechetical school, while sacrificing none of its famous passion for orthodoxy since the days of Pantaenus, Clement of Alexandria, Origen of Alexandria, Dionysius and Theognostus, had begun to take on an almost secular character in the comprehensiveness of its interests, and had counted influential pagans among its serious auditors.\nQuestion: What was Alexandria known for?",
+    "target": [
+      "important trade center"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Former members Heather and Gary Botting compare the cultural paradigms of the religion to George Orwell's Nineteen Eighty-four, and Alan Rogerson describes the religion's leadership as totalitarian. Other critics charge that by disparaging individual decision-making, the religion's leaders cultivate a system of unquestioning obedience in which Witnesses abrogate all responsibility and rights over their personal lives. Critics also accuse the religion's leaders of exercising \"intellectual dominance\" over Witnesses, controlling information and creating \"mental isolation\", which former Governing Body member Raymond Franz argued were all elements of mind control.\nQuestion: How do the leaders of the Jehovah's Witnesses cultivate a system of unquestioning obedience?",
+    "target": [
+      "disparaging individual decision-making"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Historically, the cuisine of Estonia has been heavily dependent on seasons and simple peasant food, which today is influenced by many countries. Today, it includes many typical international foods.[citation needed] The most typical foods in Estonia are black bread, pork, potatoes, and dairy products. Traditionally in summer and spring, Estonians like to eat everything fresh – berries, herbs, vegetables, and everything else that comes straight from the garden. Hunting and fishing have also been very common, although currently hunting and fishing are enjoyed mostly as hobbies. Today, it is also very popular to grill outside in summer.\nQuestion: What are the most common foods in Estonia?",
+    "target": [
+      "black bread, pork, potatoes, and dairy products."
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Many of the instruments used to perform medieval music still exist, but in different forms. Medieval instruments included the wood flute (which in the 21st century is made of metal), the recorder and plucked string instruments like the lute. As well, early versions of the organ, fiddle (or vielle), and trombone (called the sackbut) existed. Medieval instruments in Europe had most commonly been used singly, often self accompanied with a drone note, or occasionally in parts. From at least as early as the 13th century through the 15th century there was a division of instruments into haut (loud, shrill, outdoor instruments) and bas (quieter, more intimate instruments).\nQuestion: What was the medieval flute made from?",
+    "target": [
+      "wood"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Prior to 1917, Turkey used the lunar Islamic calendar with the Hegira era for general purposes and the Julian calendar for fiscal purposes. The start of the fiscal year was eventually fixed at 1 March and the year number was roughly equivalent to the Hegira year (see Rumi calendar). As the solar year is longer than the lunar year this originally entailed the use of \"escape years\" every so often when the number of the fiscal year would jump. From 1 March 1917 the fiscal year became Gregorian, rather than Julian. On 1 January 1926 the use of the Gregorian calendar was extended to include use for general purposes and the number of the year became the same as in other countries.\nQuestion: What was used to set the year number?",
+    "target": [],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Bushi was the name given to the ancient Japanese soldiers from traditional warrior families. The bushi class was developed mainly in the north of Japan. They formed powerful clans, which in the 12th century were against the noble families who were grouping themselves to support the imperial family who lived in Kyoto. Samurai was a word used by the Kuge aristocratic class with warriors themselves preferring the word bushi. The term Bushidō, the \"way of the warrior\", is derived from this term and the mansion of a warrior was called bukeyashiki.\nQuestion: Where did the imperial family live?",
+    "target": [
+      "Kyoto"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: When the Frankish rulers established the system of feudalism, the Bishops of Utrecht came to exercise worldly power as prince-bishops. The territory of the bishopric not only included the modern province of Utrecht (Nedersticht, 'lower Sticht'), but also extended to the northeast. The feudal conflict of the Middle Ages heavily affected Utrecht. The prince-bishopric was involved in almost continuous conflicts with the Counts of Holland and the Dukes of Guelders. The Veluwe region was seized by Guelders, but large areas in the modern province of Overijssel remained as the Oversticht.\nQuestion: What was part of the territory of bishopric ",
+    "target": [
+      "not only included the modern province of Utrecht (Nedersticht, 'lower Sticht'), but also extended to the northeast"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: A novelty shop called Au Bon Marché had been founded in Paris in 1838 to sell lace, ribbons, sheets, mattresses, buttons, umbrellas and other assorted goods. It originally had four departments, twelve employees, and a floor space of three hundred meters. The entrepreneur Aristide Boucicaut became a partner in 1852, and changed the marketing plan, instituting fixed prices and guarantees that allowed exchanges and refunds, advertising, and a much wider variety of merchandise. The annual income of the store increased from 500,000 francs in 1852 to five million in 1860. In 1869 he built much larger building at 24 rue de Sèvres on the Left Bank, and enlarged the store again in 1872, with help from the engineering firm of Gustave Eiffel, creator of the Eiffel Tower. The income rose from twenty million francs in 1870 to 72 million at the time of the Boucicaut's death in 1877. The floor space had increased from three hundred square meters in 1838 to fifty thousand, and the number of employees had increased from twelve in 1838 to 1788 in 1879. Boucicaut was famous for his marketing innovations; a reading room for husbands while their wives shopped; extensive newspaper advertising; entertainment for children; and six million catalogs sent out to customers. By 1880 half the employees were women; unmarried women employees lived in dormitories on the upper floors.\nQuestion: What was the change in profit to Au Bon Marche after these changes? ",
+    "target": [
+      "increased from 500,000 francs in 1852 to five million in 1860"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: Machine languages and the assembly languages that represent them (collectively termed low-level programming languages) tend to be unique to a particular type of computer. For instance, an ARM architecture computer (such as may be found in a PDA or a hand-held videogame) cannot understand the machine language of an Intel Pentium or the AMD Athlon 64 computer that might be in a PC.\nQuestion: An ARM architecture computer can be found in what?",
+    "target": [
+      "a PDA or a hand-held videogame"
+    ],
+    "isambig": false
+  }
+]

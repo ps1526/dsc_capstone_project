@@ -1,7 +1,0 @@
-method,method_class,task_type,n_episodes,accuracy_pct,correct_count,avg_turns,std_turns,min_turns,max_turns_used,stopped_turn_1,pct_stopped_turn_1,avg_mi,avg_first_turn_mi,min_mi,max_mi,source_file
-fixed_turns,FixedTurnsStopping,detective_cases,20,30.0,6,10.0,0.0,10,10,0,0.0,5.5,1.0,1.0,10.0,comparison_detective_cases_20260130_171359.json
-mi_only,MIOnlyStopping,detective_cases,20,25.0,5,1.5,1.5,1,6,18,90.0,0.05691269373026512,0.057655524673165426,0.0,0.8675440324946981,comparison_detective_cases_20260130_173024.json
-robust_mi,RobustMIStopping,detective_cases,20,25.0,5,3.0,4.6475800154489,1,21,14,70.0,0.18856990648510938,0.17625217620462721,0.0,1.3862499147585021,comparison_detective_cases_20260130_173604.json
-self_consistency,SelfConsistencyStopping,detective_cases,20,35.0,7,1.1,0.3,1,2,18,90.0,0.05625,0.075,0.0,0.375,comparison_detective_cases_20260130_172221.json
-semantic_entropy,SemanticEntropyStopping,detective_cases,20,30.0,6,1.3,0.714142842854285,1,4,16,80.0,0.09252697901175774,0.14618975101745957,0.0,0.9002560512685369,comparison_detective_cases_20260130_171921.json
-verbalized_confidence,VerbalizedConfidenceStopping,detective_cases,20,30.0,6,2.9,2.7367864366808017,1,11,9,45.0,2.3815656565656567,2.55,2.0,3.0,comparison_detective_cases_20260130_171343.json

@@ -1,3 +1,0 @@
-method: cip_lite
-k_samples: 8
-set_size_threshold: 1  # Tuned via grid search

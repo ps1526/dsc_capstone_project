@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{Background: Stopping Methods}{3}{0}{1}
-\beamer@sectionintoc {2}{Initial Method Runs}{8}{0}{2}
-\beamer@sectionintoc {3}{Parameter Grid Search}{10}{0}{3}
-\beamer@sectionintoc {4}{Validation Results \& Analysis}{14}{0}{4}
-\beamer@sectionintoc {5}{Conclusions \& Proposed Fixes}{22}{0}{5}

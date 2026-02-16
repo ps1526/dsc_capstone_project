@@ -1,3 +1,0 @@
-method: knowno
-k_samples: 8
-set_size_threshold: 2  # Tuned via grid search

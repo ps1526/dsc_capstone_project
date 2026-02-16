@@ -1,0 +1,249 @@
+[
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists the objects on my desk:\nName, size, weight, color, date of manufacture, price\nPen, 14cm, 0.02kg, blue, 01/15/2022, $1.50\nBook, 23cm, 0.5kg, red, 08/10/2020, $15.00\nLaptop, 38cm, 1.8kg, silver, 05/04/2021, $1200.00\nMouse, 12cm, 0.1kg, black, 09/17/2019, $25.00\nCup, 10cm, 0.3kg, green, 11/13/2018, $5.00",
+        "target": [
+            "Cup, Mouse, Pen, Book, Laptop",
+            "Pen, Mouse, Cup, Book, Laptop",
+            "Book, Cup, Pen, Laptop, Mouse",
+            "Cup, Mouse, Book, Laptop, Pen",
+            "Pen, Cup, Book, Mouse, Laptop"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following items are placed randomly on the workbench:\nName, size, weight, color, date of manufacture, price\nScrewdriver, 20cm, 0.25kg, yellow, 03/08/2018, $10.00\nHammer, 33cm, 0.75kg, brown, 12/01/2021, $20.00\nNails, 3cm, 0.01kg, silver, 01/14/2019, $5.00\nDrill, 25cm, 1.4kg, orange, 06/09/2020, $80.00\nGoggles, 15cm, 0.05kg, clear, 07/22/2017, $15.00",
+        "target": [
+            "Nails, Goggles, Screwdriver, Drill, Hammer",
+            "Nails, Goggles, Screwdriver, Hammer, Drill",
+            "Drill, Screwdriver, Hammer, Nails",
+            "Goggles, Screwdriver, Nails, Drill, Hammer",
+            "Nails, Screwdriver, Goggles, Hammer, Drill"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The objects on the shelf are as follows:\nName, size, weight, color, date of manufacture, price\nVase, 22cm, 1.2kg, purple, 10/30/2016, $35.00\nStatue, 45cm, 3.5kg, grey, 08/15/2015, $200.00\nPicture Frame, 30cm, 0.6kg, white, 05/20/2018, $20.00\nCandle, 12cm, 0.2kg, pink, 12/25/2020, $10.00\nClock, 35cm, 0.9kg, black, 11/11/2019, $50.00",
+        "target": [
+            "Candle, Vase, Picture Frame, Clock, Statue",
+            "Candle, Picture Frame, Clock, Vase, Statue",
+            "Candle, Vase, Statue, Picture Frame, Clock",
+            "Statue, Vase, Picture Frame, Clock, Candle",
+            "Candle, Picture Frame, Vase, Clock, Statue"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists the objects on my table:\nName, size, weight, color, date of manufacture, price\nCoffee cup, 9cm, 0.35kg, white, 01/15/2019, $5\nWater bottle, 22cm, 0.5kg, blue, 06/10/2021, $10\nMobile phone, 15cm, 0.2kg, black, 11/02/2020, $300\nKeychain, 5cm, 0.05kg, red, 03/30/2018, $2\nSunglasses, 14cm, 0.03kg, violet, 07/25/2022, $50",
+        "target": [
+            "Keychain, Coffee cup, Sunglasses, Mobile phone, Water bottle",
+            "Sunglasses, Keychain, Mobile phone, Coffee cup, Water bottle",
+            "Mobile phone, Keychain, Water bottle, Sunglasses, Coffee cup",
+            "Keychain, Coffee cup, Mobile phone, Water bottle, Sunglasses",
+            "Keychain, Coffee cup, Water bottle, Sunglasses, Mobile phone"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists the objects on my table:\nName, size, weight, color, date of manufacture, price\nStapler, 12cm, 0.15kg, red, 05/14/2015, $12\nNotebook, 25cm, 0.4kg, green, 12/01/2017, $3\nCalculator, 20cm, 0.25kg, grey, 08/20/2018, $20\nPen, 14cm, 0.02kg, blue, 02/09/2019, $1\nMouse pad, 30cm, 0.1kg, black, 10/05/2020, $7",
+        "target": [
+            "Stapler, Pen, Calculator, Notebook, Mouse pad",
+            "Pen, Mouse pad, Stapler, Calculator, Notebook",
+            "Stapler, Notebook, Pen, Mouse pad, Calculator",
+            "Stapler, Notebook, Calculator, Pen, Mouse pad",
+            "Pen, Notebook, Mouse pad, Stapler, Calculator"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists the objects on my table:\nName, size, weight, color, date of manufacture, price\nDesk lamp, 35cm, 1kg, yellow, 04/28/2016, $25\nScissors, 20cm, 0.08kg, silver, 11/12/2014, $8\nUSB drive, 6cm, 0.01kg, green, 09/06/2021, $15\nEnvelope, 24cm, 0.005kg, white, 01/25/2022, $0.50\nGlasses case, 16cm, 0.12kg, black, 07/17/2018, $10",
+        "target": [
+            "USB drive, Glasses case, Scissors, Envelope, Desk lamp",
+            "Envelope, USB drive, Scissors, Glasses case, Desk lamp",
+            "Glasses case, Desk lamp, USB drive, Scissors, Envelope",
+            "Scissors, Desk lamp, Glasses case, USB drive, Envelope",
+            "Envelope, Scissors, Glasses case, USB drive, Desk lamp"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists the objects on my table:\nName, size, weight, color, date of manufacture, price\nPen, 14cm, 0.02kg, Blue, 01/15/2022, $1.50\nNotebook, 24cm, 0.45kg, Red, 08/10/2021, $3.00\nLamp, 35cm, 0.76kg, Green, 12/25/2019, $18.00\nCup, 10cm, 0.30kg, Violet, 03/08/2020, $5.00\nMouse, 12cm, 0.10kg, Red, 11/11/2021, $25.00",
+        "target": [
+            "Cup, Mouse, Pen, Notebook, Lamp",
+            "Pen, Mouse, Cup, Notebook, Lamp",
+            "Notebook, Mouse, Lamp, Pen, Cup",
+            "Lamp, Cup, Notebook, Mouse, Pen",
+            "Pen, Notebook, Cup, Lamp, Mouse"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following items are on my table:\nName, size, weight, color, date of manufacture, price\nKeychain, 5cm, 0.05kg, Yellow, 06/01/2020, $2.00\nFlash drive, 6cm, 0.03kg, Black, 09/15/2022, $12.00\nSunglasses, 15cm, 0.08kg, Brown, 03/20/2021, $50.00\nWater bottle, 22cm, 0.35kg, Blue, 12/12/2022, $10.00\nStapler, 16cm, 0.25kg, Red, 04/18/2018, $7.00",
+        "target": [
+            "Keychain, Flash drive, Sunglasses, Stapler, Water bottle",
+            "Flash drive, Keychain, Sunglasses, Stapler, Water bottle",
+            "Flash drive, Stapler, Sunglasses, Keychain, Water bottle",
+            "Stapler, Keychain, Sunglasses, Flash drive, Water bottle",
+            "Keychain, Stapler, Water bottle, Flash drive, Sunglasses"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "Objects on my desk:\nName, size, weight, color, date of manufacture, price\nCalculator, 20cm, 0.15kg, Gray, 05/02/2019, $15.00\nScissors, 18cm, 0.12kg, Red, 11/29/2020, $4.00\nGlue stick, 8cm, 0.04kg, White, 02/14/2022, $1.25\nEnvelope, 25cm, 0.01kg, Brown, 10/03/2021, $0.50\nRuler, 30cm, 0.05kg, Yellow, 08/21/2018, $2.50",
+        "target": [
+            "Glue stick, Scissors, Calculator, Envelope, Ruler",
+            "Envelope, Glue stick, Ruler, Scissors, Calculator",
+            "Scissors, Ruler, Envelope, Calculator, Glue stick",
+            "Ruler, Calculator, Scissors, Envelope, Glue stick",
+            "Envelope, Glue stick, Ruler, Scissors, Calculator"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists objects on my desk:\nName, size, weight, color, date of manufacture, price\nPen, 14cm, 0.01kg, blue, 01/15/2022, $1.50\nNotebook, 21cm, 0.3kg, red, 06/12/2021, $3.00\nLaptop, 38cm, 2.0kg, silver, 03/10/2020, $1200.00\nMouse, 12cm, 0.08kg, black, 09/17/2019, $25.00\nCoffee Mug, 10cm, 0.35kg, green, 11/05/2021, $10.00",
+        "target": [
+            "Coffee Mug, Mouse, Pen, Notebook, Laptop",
+            "Pen, Mouse, Notebook, Coffee Mug, Laptop",
+            "Notebook, Coffee Mug, Pen",
+            "Mouse, Laptop, Coffee Mug, Notebook, Pen",
+            "Pen, Notebook, Coffee Mug, Mouse, Laptop"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists objects on my bookshelf:\nName, size, weight, color, date of manufacture, price\nDictionary, 30cm, 1.5kg, burgundy, 08/20/2018, $45.00\nCandle, 8cm, 0.2kg, white, 12/25/2022, $5.00\nPhoto Frame, 25cm, 0.5kg, gold, 07/03/2017, $30.00\nPlant Pot, 18cm, 0.7kg, terracotta, 04/15/2019, $15.00\nSunglasses, 15cm, 0.03kg, black, 06/10/2021, $80.00",
+        "target": [
+            "Candle, Sunglasses, Plant Pot, Photo Frame, Dictionary",
+            "Sunglasses, Candle, Photo Frame, Plant Pot, Dictionary",
+            "Dictionary, Plant Pot, Photo Frame, Candle",
+            "Photo Frame, Dictionary, Plant Pot, Sunglasses, Candle",
+            "Candle, Plant Pot, Photo Frame, Dictionary, Sunglasses"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists objects in my storage box:\nName, size, weight, color, date of manufacture, price\nStapler, 16cm, 0.25kg, red, 03/08/2019, $12.00\nScissors, 20cm, 0.15kg, silver, 11/12/2018, $8.00\nTape Dispenser, 12cm, 0.5kg, black, 05/30/2020, $7.00\nGlue Stick, 8cm, 0.05kg, white, 10/15/2021, $2.00\nCalculator, 18cm, 0.2kg, grey, 08/21/2019, $20.00",
+        "target": [
+            "Glue Stick, Tape Dispenser, Stapler, Calculator, Scissors",
+            "Glue Stick, Scissors, Calculator, Stapler, Tape Dispenser",
+            "Stapler, Scissors, Calculator, Tape Dispenser, Glue Stick",
+            "Scissors, Stapler, Calculator, Tape Dispenser, Glue Stick",
+            "Glue Stick, Tape Dispenser, Scissors, Stapler, Calculator"
+        ],
+        "isambig": true
+    },
+    {
+        "orig_instruction": "Rearrange the objects on the table in ascending order.",
+        "gt_clarification": [
+            "Rearrange the objects on the table in ascending order by size, from smallest to largest.",
+            "Rearrange the objects on the table in ascending order by weight, from lightest to heaviest.",
+            "Rearrange the objects on the table in ascending order by color, following the spectrum from red to violet.",
+            "Rearrange the objects on the table in ascending order by date of manufacture, from oldest to newest.",
+            "Rearrange the objects on the table in ascending order by price, from least expensive to most expensive."
+        ],
+        "input": "The following table lists the objects on my table:\nName, size, weight, color, date of manufacture, price\nPen, 14cm, 0.05kg, blue, 01/05/2021, $1.50\nBook, 23cm, 0.5kg, red, 07/12/2019, $15.00\nLamp, 45cm, 1.2kg, violet, 03/22/2020, $30.00\nMug, 10cm, 0.3kg, green, 11/08/2022, $8.00",
+        "target": [
+            "Mug, Pen, Book, Lamp",
+            "Pen, Mug, Book, Lamp",
+            "Book, Mug, Pen, Lamp",
+            "Book, Lamp, Pen, Mug",
+            "Pen, Mug, Book, Lamp"
+        ],
+        "isambig": true
+    }
+]

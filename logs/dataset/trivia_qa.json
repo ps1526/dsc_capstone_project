@@ -1,0 +1,112 @@
+[
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: Which theory states that 'people tend to rise to their own level of incompetence'?",
+    "target": [
+      "PETER PRINCIPLE"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: Which writer was the father of Christopher Robin?",
+    "target": [
+      "A A MILNE"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: The Dance Class and Absinthe are famous works by which painter?",
+    "target": [
+      "EDGAR DEGAS"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: Which American actor also performs with the band Dogstar?",
+    "target": [
+      "Keanu Reeves"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: In which city was the British version of Concorde assembled",
+    "target": [
+      "Bristol"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: What is taphophobia the fear of?",
+    "target": [
+      "Graves"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: Which bruising 19th century American, the last of the bare knuckle boxing heavyweight champions, was the first athlete to earn over one million dollars?",
+    "target": [
+      "John L. Sullivan"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: Who was the merchant sea-captain who made the first American circumnavigation of the world in 1790, and is known for trading voyages to the northern Pacific coast of North America between 1790 and 1793, which pioneered the fur trade in that region?",
+    "target": [
+      "Robert Gray"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: Situated in Piccadilly, what is the name of London’s oldest bookshop?",
+    "target": [
+      "Hatchards"
+    ],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Answer the question based on the given context.",
+    "gt_clarification": [
+      "Answer the question based on the given context."
+    ],
+    "input": "Context: \nQuestion: What childhood stories feature a young boy named Mowgli?",
+    "target": [
+      "The Jungle Book"
+    ],
+    "isambig": false
+  }
+]

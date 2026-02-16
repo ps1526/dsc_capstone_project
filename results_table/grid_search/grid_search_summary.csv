@@ -1,7 +1,0 @@
-method,threshold_param,best_threshold,accuracy,avg_turns,n_episodes
-mi_only,mi_threshold,0.01,0.8,7.4,5
-verbalized_confidence,confidence_threshold,idx_5,0.8,20.6,5
-self_consistency,consistency_threshold,0.5,0.4,1.0,5
-semantic_entropy,entropy_threshold,idx_32,0.4,1.0,5
-knowno,set_size_threshold,2,0.4,1.0,5
-cip_lite,set_size_threshold,2,0.4,1.0,5

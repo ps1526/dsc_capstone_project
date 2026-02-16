@@ -1,0 +1,92 @@
+[
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Which factor will most likely cause a person to develop a fever?\nChoices: A. a leg muscle relaxing after exercise | B. a bacterial population in the bloodstream | C. several viral particles on the skin | D. carbohydrates being digested in the stomach",
+    "target": ["a bacterial population in the bloodstream"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Lichens are symbiotic organisms made of green algae and fungi. What do the green algae supply to the fungi in this symbiotic relationship?\nChoices: A. carbon dioxide | B. food | C. protection | D. water",
+    "target": ["food"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "When a switch is used in an electrical circuit, the switch can\nChoices: A. cause the charge to build. | B. increase and decrease the voltage. | C. cause the current to change direction. | D. stop and start the flow of current.",
+    "target": ["stop and start the flow of current."],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Which of the following is an example of an assistive device?\nChoices: A. contact lens | B. motorcycle | C. raincoat | D. coffee pot",
+    "target": ["contact lens"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Rocks are classified as igneous, metamorphic, or sedimentary according to\nChoices: 1. their color | 2. their shape | 3. how they formed | 4. the minerals they contain",
+    "target": ["how they formed"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "A chewable calcium carbonate tablet is a common treatment for stomach discomfort. Calcium carbonate is most likely used as this type of medicine because calcium carbonate\nChoices: A. has a pleasant flavor. | B. is inexpensive to produce. | C. neutralizes digestive acid. | D. occurs naturally in the body.",
+    "target": ["neutralizes digestive acid."],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Which two body systems are directly involved in movement?\nChoices: A. muscular and skeletal | B. digestive and muscular | C. skeletal and respiratory | D. respiratory and digestive",
+    "target": ["muscular and skeletal"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Which change in the state of water particles causes the particles to become arranged in a fixed position?\nChoices: A. boiling | B. melting | C. freezing | D. evaporating",
+    "target": ["freezing"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Earth's core is primarily composed of which of the following materials?\nChoices: A. basalt | B. iron | C. magma | D. quartz",
+    "target": ["iron"],
+    "isambig": false
+  },
+  {
+    "orig_instruction": "Select the correct answer choice (A–D) for the question. Answer with the choice text only.",
+    "gt_clarification": [
+      "Select the correct answer choice (A–D) for the question. Answer with the choice text only."
+    ],
+    "input": "Which of the following events during meiosis contributes most to the variation within a species?\nChoices: A. pairing of chromosomes | B. creation of haploid gametes | C. segregation of alleles | D. separation of chromatids",
+    "target": ["segregation of alleles"],
+    "isambig": false
+  }
+]
