@@ -1,5 +1,0 @@
-threshold,file,accuracy,avg_turns,std_turns,n_episodes
-idx_11,comparison_detective_cases_20260130_191132.json,0.2,1.2,0.4,5
-idx_30,comparison_detective_cases_20260130_192144.json,0.2,1.4,0.4898979485566356,5
-idx_31,comparison_detective_cases_20260130_192208.json,0.4,2.2,1.9390719429665317,5
-idx_32,comparison_detective_cases_20260130_192213.json,0.4,1.0,0.0,5

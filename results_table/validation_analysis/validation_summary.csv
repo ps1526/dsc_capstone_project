@@ -1,9 +1,0 @@
-method,accuracy_pct,avg_turns,stopped_turn_1_pct,mi_zero_start_pct,n_correct,n_episodes,file
-cip_lite,45.0,1.45,75.0,0.0,9,20,comparison_detective_cases_20260130_195608.json
-fixed_turns,30.0,10.0,0.0,0.0,6,20,comparison_detective_cases_20260130_171359.json
-knowno,40.0,1.0,100.0,0.0,8,20,comparison_detective_cases_20260130_195546.json
-mi_only,25.0,4.1,70.0,70.0,5,20,comparison_detective_cases_20260130_203038.json
-robust_mi,25.0,3.0,70.0,45.0,5,20,comparison_detective_cases_20260130_173604.json
-self_consistency,35.0,1.1,90.0,75.0,7,20,comparison_detective_cases_20260130_172221.json
-semantic_entropy,35.0,1.35,80.0,75.0,7,20,comparison_detective_cases_20260130_195553.json
-verbalized_confidence,30.0,23.05,0.0,0.0,6,20,comparison_detective_cases_20260130_200245.json

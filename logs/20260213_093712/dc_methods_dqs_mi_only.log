@@ -1,7 +1,0 @@
-usage: run.py [-h] [--task TASK] [--max-turns MAX_TURNS] [--calibrate]
-              [--n-train N_TRAIN] [--n-test N_TEST]
-              [--target-error TARGET_ERROR] [--k-samples K_SAMPLES]
-              [--regime REGIME] [--output-dir OUTPUT_DIR] [--verbose]
-              [--quiet] [--list] [--return-results]
-              [config]
-run.py: error: unrecognized arguments: --n_puzzles 5 --max_workers 32
