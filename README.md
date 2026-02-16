@@ -2,6 +2,8 @@
 
 **RRMC (Robust Revision-MI Control)** is the working name for the method described in the Robust-MI Active Inquiry proposal: use **robust self-revision mutual information** as an uncertainty signal, then apply **risk-controlled thresholding** (Clopper–Pearson UCB) to decide **ask vs answer** in interactive tasks like AR-Bench.
 
+In order to run different experiments, switch between branches present in the repo to see how to run different experiments
+
 ---
 
 ## Branch: `blob` (Weight perturbation + ECE on AR-Bench)
