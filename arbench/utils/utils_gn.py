@@ -93,3 +93,13 @@ def compare_guess(list1: List[int], list2: List[int]) -> Tuple[int, int, int]:
     total_score = same_position_count * 2 + same_element_different_position_count
 
     return same_position_count, same_element_different_position_count, total_score
+
+def extract_strict_4digit_guess(text: str) -> List[int]:
+    """
+    Extract exactly one 4-digit guess.
+    Leading zeros allowed.
+    """
+    m = re.search(r"\b\d{4}\b", text)
+    if not m:
+        raise NotNumberError()
+    return [int(ch) for ch in m.group()]
