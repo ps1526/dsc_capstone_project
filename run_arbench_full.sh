@@ -13,75 +13,67 @@
 set -euo pipefail
 export PYTHONUNBUFFERED=1
 
-echo "=== CLEAN AR-Bench + vLLM 0.6.3 BUILD ==="
+echo "=== FULL CLEAN AR-Bench + vLLM BUILD ==="
 date
 cd "$SLURM_SUBMIT_DIR"
 
 # -------------------------------
-# Load modules
+# Load cluster modules
 # -------------------------------
+module purge
 module load gpu/0.17.3b
 module load intel/19.1.3.304/vecir2b
 module load cuda/11.2.2
 
 # -------------------------------
-# Conda
+# Conda Fresh Reset
 # -------------------------------
 source ~/anaconda3/etc/profile.d/conda.sh
-ENV_NAME="arbench_vllm063"
 
-echo "Deleting old environment if it exists..."
+ENV_NAME="arbench_clean_env"
+
+echo "Removing old environment (if exists)..."
 conda remove -n $ENV_NAME --all -y || true
+rm -rf ~/anaconda3/envs/$ENV_NAME || true
 
-echo "Creating fresh environment..."
+echo "Creating new environment..."
 conda create -n $ENV_NAME python=3.10 -y
 conda activate $ENV_NAME
 
 pip install --upgrade pip setuptools wheel
 
 # -------------------------------
-# Install Torch FIRST
+# Clean Scientific Stack
 # -------------------------------
-echo "Installing torch..."
-pip install \
-    torch==2.0.1+cu117 \
-    torchvision==0.15.2+cu117 \
-    --extra-index-url https://download.pytorch.org/whl/cu117
 
-# Verify torch immediately
+# NumPy
+pip install --no-cache-dir "numpy<2"
+
+# Torch (required by vLLM 0.4.2)
+pip install --no-cache-dir \
+  torch==2.3.0+cu121 \
+  torchvision==0.18.0+cu121 \
+  torchaudio==2.3.0+cu121 \
+  --index-url https://download.pytorch.org/whl/cu121
+
+# Lock transformers BEFORE installing vllm
+pip install --no-cache-dir transformers==4.40.2
+
+# Install vLLM normally
+pip install --no-cache-dir vllm==0.4.2
+
+# Utilities
+pip install fire jq openai
+
+# -------------------------------
+# Sanity Check
+# -------------------------------
 python - <<EOF
-import torch
-print("Torch version:", torch.__version__)
-print("CUDA available:", torch.cuda.is_available())
-EOF
-
-# -------------------------------
-# Install HuggingFace stack
-# -------------------------------
-echo "Installing HF stack..."
-pip install \
-    numpy==1.26.4 \
-    fsspec==2024.6.1 \
-    huggingface-hub==0.23.5 \
-    tokenizers==0.19.1 \
-    transformers==4.43.4 \
-    openai==1.40.6
-
-# -------------------------------
-# Install vLLM
-# -------------------------------
-echo "Installing vLLM..."
-pip install vllm==0.6.3
-
-pip install fire jq
-
-# Final sanity check
-python - <<EOF
-import torch, transformers, tokenizers, vllm
+import torch, vllm, inspect
 print("torch:", torch.__version__)
-print("transformers:", transformers.__version__)
-print("tokenizers:", tokenizers.__version__)
 print("vllm:", vllm.__version__)
+print("vllm path:", inspect.getfile(vllm))
+print("CUDA available:", torch.cuda.is_available())
 EOF
 
 # -------------------------------
@@ -115,18 +107,59 @@ python -u -m vllm.entrypoints.openai.api_server \
 VLLM_PID=$!
 trap "kill $VLLM_PID 2>/dev/null || true" EXIT
 
-sleep 30
+# -------------------------------
+# Wait for vLLM
+# -------------------------------
+echo "Waiting for vLLM to become ready..."
 
-if ! curl -sf "http://127.0.0.1:$PORT/v1/models" >/dev/null; then
-    echo "vLLM failed to start"
+READY=0
+for i in {1..60}; do
+    if curl -sf "http://127.0.0.1:$PORT/v1/models" >/dev/null; then
+        READY=1
+        break
+    fi
+    sleep 5
+done
+
+if [ "$READY" -ne 1 ]; then
+    echo "vLLM failed to start."
     tail -n 100 "$LOGFILE"
     exit 1
 fi
 
-echo "vLLM running."
+echo "vLLM is running."
 
 # -------------------------------
-# AR-Bench Setup
+# Standalone Test
+# -------------------------------
+echo "Running standalone reasoning test..."
+
+TEST_RESPONSE=$(curl -s http://127.0.0.1:$PORT/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"model\": \"$SERVED_NAME\",
+    \"messages\": [
+      {\"role\": \"system\", \"content\": \"You are a precise reasoning assistant.\"},
+      {\"role\": \"user\", \"content\": \"If a train travels 60 miles per hour for 2 hours, how far does it travel?\"}
+    ],
+    \"temperature\": 0.0,
+    \"max_tokens\": 50
+  }")
+
+echo "$TEST_RESPONSE"
+
+if echo "$TEST_RESPONSE" | grep -q "120"; then
+    echo "✅ Standalone test PASSED."
+else
+    echo "❌ Standalone test FAILED."
+    tail -n 50 "$LOGFILE"
+    exit 1
+fi
+
+echo "Standalone test complete."
+
+# -------------------------------
+# AR-Bench Environment
 # -------------------------------
 export OPENAI_API_KEY="EMPTY"
 export OPENAI_API_BASE="http://127.0.0.1:$PORT/v1"
@@ -141,9 +174,10 @@ export MAX_TOKENS=1024
 sleep 5
 
 # -------------------------------
-# Run evaluators
+# Run Evaluators
 # -------------------------------
 set -x
+
 for evaluator in dc sp gn; do
     if [ "$evaluator" = "gn" ]; then
         python -m arbench.reasoner.gn.gn_evaluator \
@@ -162,6 +196,7 @@ for evaluator in dc sp gn; do
             --max_turn 25
     fi
 done
+
 set +x
 
 date
