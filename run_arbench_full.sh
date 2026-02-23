@@ -49,14 +49,14 @@ pip install --upgrade pip setuptools wheel
 # NumPy
 pip install --no-cache-dir "numpy<2"
 
-# Torch (required by vLLM 0.4.2)
+# Torch 
 pip install --no-cache-dir \
   torch==2.3.0+cu121 \
   torchvision==0.18.0+cu121 \
   torchaudio==2.3.0+cu121 \
   --index-url https://download.pytorch.org/whl/cu121
 
-# Lock transformers BEFORE installing vllm
+# Lock transformers 
 pip install --no-cache-dir transformers==4.40.2
 
 # Install vLLM normally
