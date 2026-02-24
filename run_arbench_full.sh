@@ -139,16 +139,24 @@ TEST_RESPONSE=$(curl -s http://127.0.0.1:$PORT/v1/chat/completions \
   -d "{
     \"model\": \"$SERVED_NAME\",
     \"messages\": [
-      {\"role\": \"system\", \"content\": \"You are a precise reasoning assistant.\"},
+      {\"role\": \"system\", \"content\": \"You are a precise reasoning assistant. Respond with only the final answer.\"},
       {\"role\": \"user\", \"content\": \"If a train travels 60 miles per hour for 2 hours, how far does it travel?\"}
     ],
     \"temperature\": 0.0,
-    \"max_tokens\": 50
+    \"max_tokens\": 200
   }")
 
-echo "$TEST_RESPONSE"
+# Extract only the model's content
+ANSWER=$(echo "$TEST_RESPONSE" | python -c "
+import sys, json
+data = json.load(sys.stdin)
+print(data['choices'][0]['message']['content'])
+")
 
-if echo "$TEST_RESPONSE" | grep -q "120"; then
+echo "Model answer:"
+echo "$ANSWER"
+
+if echo "$ANSWER" | grep -q "120"; then
     echo "✅ Standalone test PASSED."
 else
     echo "❌ Standalone test FAILED."
