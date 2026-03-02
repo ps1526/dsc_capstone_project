@@ -1,0 +1,32 @@
+# -------------------------------
+# build-system
+# -------------------------------
+[build-system]
+requires = [
+    "setuptools>=61.0",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arbench"
+version = "0.1.0"
+description = "AR-Bench: Active Reasoning Benchmark"
+requires-python = ">=3.10"
+authors = [
+    {name = "AR-Bench Authors", email = "author@example.com"},
+]
+dependencies = [
+    "openai",
+    "fire",
+    "numpy",
+    "pandas",
+    "vllm",
+    "requests",
+    "tqdm",
+    "typing-extensions",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["arbench*"]

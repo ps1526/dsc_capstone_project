@@ -1,8 +1,2 @@
-numpy
-scipy
-requests
 openai
-pyyaml
 fire
-tqdm
-sentence-transformers

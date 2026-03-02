@@ -1,0 +1,8 @@
+openai
+fire
+numpy
+pandas
+vllm
+requests
+tqdm
+typing-extensions

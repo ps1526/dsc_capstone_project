@@ -1,4 +1,0 @@
-# Verbalized Confidence Method Defaults
-# Stop when model's self-reported confidence >= threshold
-
-confidence_threshold: 9.0  # Tuned via grid search

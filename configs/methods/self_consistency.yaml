@@ -1,4 +1,0 @@
-# Self-Consistency Stopping Rule
-method: self_consistency
-k_samples: 8
-consistency_threshold: 1.0  # Tuned via grid search

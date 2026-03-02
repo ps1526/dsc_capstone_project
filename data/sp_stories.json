@@ -1,0 +1,67 @@
+[
+  {
+    "supernatural": false,
+    "someone_dies": true,
+    "core_sentence": "On a cold winter's night, John was found dead outside his own warm house, with the front door unlocked and no signs of forced entry.",
+    "story_tree": {
+      "value": "On a cold winter's night, John was found dead outside his own warm house, with the front door unlocked and no signs of forced entry.",
+      "children": [
+        {
+          "value": "The front door was unlocked because John had set it to open automatically using a smart home system before going to bed, and he was accidentally triggered the system while leaving the house.",
+          "based_question": "What could explain the unlocked front door with no signs of forced entry?",
+          "key_question": "Did John use a smart home system to automatically unlock the front door?",
+          "children": [
+            {
+              "value": "John's front door was unlocked because he had set it to open automatically using a smart home system before going to bed, and he was accidentally triggered the system while leaving the house.",
+              "based_question": "How could John's front door be unlocked with no signs of forced entry?",
+              "key_question": "Did John use a smart home system to automatically unlock the front door?",
+              "children": [
+                {
+                  "value": "John's front door was unlocked because he had set it to open automatically using a smart home system before going to bed, and he was accidentally triggered the system while leaving the house.",
+                  "based_question": "How could John's front door be unlocked with no signs of forced entry?",
+                  "key_question": "Did John use a smart home system to automatically unlock the front door?",
+                  "children": []
+                },
+                {
+                  "value": "John was accidentally triggering the smart home system as he left the house because he was wearing gloves that had a similar fingerprint to his usual ones, causing the system to recognize him incorrectly.",
+                  "based_question": "Why was John accidentally triggering the smart home system as he left the house?",
+                  "key_question": "Were John's gloves similar enough to his usual fingerprints to cause the smart home system to misidentify him?",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "value": "John was found dead outside his own warm house because he accidentally triggered his smart home system while wearing gloves with similar fingerprints, causing the front door to unlock without any signs of forced entry, and he likely wandered outside and never returned to his warm house.",
+              "based_question": "Why was John found dead outside his own warm house?",
+              "key_question": "Were John's gloves similar enough to his usual fingerprints to cause the smart home system to misidentify him?",
+              "children": [
+                {
+                  "value": "John's smart home system unlocked the front door when he was outside because he was wearing gloves with similar fingerprints to his usual ones, which caused the system to misidentify him.",
+                  "based_question": "Why did John's smart home system unlock the front door when he was outside?",
+                  "key_question": "Were John's gloves similar enough to his usual fingerprints to cause the smart home system to misidentify him?",
+                  "children": []
+                },
+                {
+                  "value": "John's gloves were similar enough to his usual fingerprints to cause the smart home system to misidentify him because the gloves had a unique texture that mimicked his fingerprint patterns.",
+                  "based_question": "What made John's gloves similar enough to his usual fingerprints to cause the smart home system to misidentify him?",
+                  "key_question": "Did John's gloves have a unique texture that mimicked his fingerprint patterns?",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "based_question": "",
+      "key_question": ""
+    },
+    "bottom": "On a cold winter's night, John was found dead outside his own warm house, with the front door unlocked and no signs of forced entry. The front door was unlocked because John had set it to open automatically using a smart home system before going to bed, and he was accidentally triggered the system while leaving the house. Wearing gloves with a similar fingerprint pattern, John's smart home system misidentified him, causing the front door to unlock without any signs of forced entry. John likely wandered outside and never returned to his warm house, leading to his unexpected death.",
+    "surface": "",
+    "key_question": [
+      "Did John use a smart home system to automatically unlock the front door?",
+      "Were John's gloves similar enough to his usual fingerprints to cause the smart home system to misidentify him?",
+      "Did John's gloves have a unique texture that mimicked his fingerprint patterns?"
+    ],
+    "index": 0
+  }
+]
