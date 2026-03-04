@@ -2,7 +2,7 @@
 
 # zero_shot, few_shot, few_shot_inst, tot, proactive_cot, uot
 METHOD="uot"
-MAX_TURN=25
+MAX_TURN=20
 BRANCH=3
 POLICY_MODEL="qwen2.5-32b-instruct"
 RESPONSE_MODEL="qwen2.5-32b-instruct"
