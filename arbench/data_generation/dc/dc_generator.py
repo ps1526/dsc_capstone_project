@@ -17,7 +17,7 @@ load_dotenv()
 
 # Global inference parameters
 _default_model = "gpt-4o"
-_default_temperature = 0.7
+_default_temperature = 0.75
 _default_top_p = 0.7
 
 API_KEY = os.getenv("API_KEY")
