@@ -1041,7 +1041,7 @@
             },
             {
                 "role": "user",
-                "content": "Turn 11: Now give me the number you guess in this format, and do not give any other statement:\nGuess: [number]\n"
+                "content": "Turn 11: Give me the number you guess in this format, and do not give any other statement:\nGuess: [number]\n"
             },
             {
                 "role": "assistant",
