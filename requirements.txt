@@ -1,2 +1,8 @@
 openai
 fire
+numpy==1.26.4
+sentence_transformers==2.7.0
+rouge-score==0.1.2
+evaluate==0.4.1
+bert-score==0.3.13
+openai==1.25.0
