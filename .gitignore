@@ -1,0 +1,26 @@
+# Secrets / local env
+.env
+.env.*
+openrouter.env
+!.env.example
+
+# Common secret/key files
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+
+# MacOS
+.DS_Store
+
+#AR-Bench
+*.egg-info/
