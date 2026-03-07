@@ -4,6 +4,7 @@
 
 - [Problem Description](#problem-description)
 - [Background](#background)
+- [Repo Structure](#repo-structure)
 - [Installation](#installation)
 - [Environment Setup](#environment-setup)
 - [Dependency List](#dependency-list)
@@ -22,6 +23,45 @@ Currently, active reasoning tasks are still difficult for large language models.
 This repository contains code to run Sampling with Perturbation for Uncertainty Quantification, as outlined in this [paper](https://arxiv.org/abs/2403.02509), on active reasoning tasks. There are three methods of perturbations that are tested: paraphrasing, dummy tokens, and system messages. Each of the three methods can be tested on 5 question and answer datasets through this repo: 3 multiple choice question and answer datasets and 2 open ended question and answer datasets. For each dataset, the accuracy and expected calibration error (ECE) is measured for each perturbation type.
 
 Additionally, there are three types of active reasoning tasks: guessing numbers, detective cases, and situation puzzles. All types of perturbations can be run on all types of active reasoning tasks.
+
+## Repo Structure
+
+```
+spuq
+├── SPUQ/
+│   ├── aggregation.py
+│   ├── llms.py
+│   ├── perturbation.py
+│   ├── run.py                      # File to run mcq and open ended experiments
+│   ├── spuq.py
+│   └── text_sim.py
+├── arbench/
+│   ├── __pycache__/
+│   ├── data_generation/
+│   ├── reasoner/
+│   ├── utils/
+│   └── __init__.py
+├── data/
+│   ├── dc/                         # default detective cases data
+│   ├── gn/                         # default guessing number data
+│   ├── sp/                         # default situation puzzle data
+│   ├── dc_custom_cases.json        # custom detective cases data
+│   └── sp_stories.json             # custom situation puzzle data
+├── results/
+│   ├── greedy_gn.json
+│   ├── zero_shot_dc.json
+│   └── zero_shot_sp.json
+├── script/
+│   ├── evaluation/                 # Contiains files to run ar experiments
+│   └── generation/                 # Contains files to generate new ar data
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── README.md
+├── docker-compose.yml
+├── pyproject.toml
+└── requirements.txt
+```
 
 ## Installation
 
